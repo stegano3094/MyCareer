@@ -1,0 +1,10 @@
+{
+  "project": [
+    {
+      "name": "앱이름",
+      "packageName": "com.stegano.ccc",
+      "logoImgUri": "이걸로 이미지 가져올 수 있도록 만들자",
+      "comment": "이러한 것을 사용했고, 이렇게 했다."
+    }
+  ]
+}

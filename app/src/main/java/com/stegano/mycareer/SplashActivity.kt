@@ -26,16 +26,28 @@ class SplashActivity : AppCompatActivity() {
         // 스플래쉬 화면에서 3초간격으로 네트워크를 확인함
         Toast.makeText(this@SplashActivity, "인터넷 \"확인 중\" 입니다.", Toast.LENGTH_SHORT).show()
         timer = Timer().schedule(3000, 3000) {
-
             when(checkNetwork()) {
                 true -> {  // 인터넷에 연결되어 있는 경우
-                    setClose()  // 타이머 및 애니메이션 종료
-                    moveMainActivity()  // 메인 엑티비티로 전환
+                    runOnUiThread {  // ui 변경이 있어서 Thread에서 처리함
+                        setClose()  // 타이머 및 애니메이션 종료
+                        Toast.makeText(
+                            this@SplashActivity,
+                            "인터넷 연결을 확인하였습니다.",
+                            Toast.LENGTH_SHORT)
+                            .show()
+                        moveMainActivity()  // 메인 엑티비티로 전환
+                    }
                 }
                 false -> { // 인터넷에 연결되어 있지 않은 경우 3초간 계속 확인
-                    setClose()  // 타이머 및 애니메이션 종료
-                    Toast.makeText(this@SplashActivity, "인터넷이 연결되어 있지 않습니다.", Toast.LENGTH_SHORT).show()
-                    finish()
+                    runOnUiThread {
+                        setClose()  // 타이머 및 애니메이션 종료
+                        Toast.makeText(
+                            this@SplashActivity,
+                            "인터넷이 연결되어 있지 않습니다.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        finish()
+                    }
                 }
             }
 
@@ -72,6 +84,5 @@ class SplashActivity : AppCompatActivity() {
     private fun setClose() {
         splashMainImage.clearAnimation()
         timer?.cancel()
-        timer = null
     }
 }
