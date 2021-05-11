@@ -26,9 +26,10 @@ class SplashActivity : AppCompatActivity() {
         // 스플래쉬 화면의 이미지에 애니메이션 처리함
         splashMainImage.startAnimation(AnimationUtils.loadAnimation(this@SplashActivity, R.anim.splash_animation))
 
-        // 스플래쉬 화면에서 3초간격으로 네트워크를 확인함
+        // 스플래쉬 화면에서 N초 간격으로 네트워크를 확인함
+        val delayTime = 2000L
         Toast.makeText(this@SplashActivity, "인터넷 \"확인 중\" 입니다.", Toast.LENGTH_SHORT).show()
-        timer = Timer().schedule(3000, 3000) {
+        timer = Timer().schedule(delayTime, delayTime) {
             when(checkNetwork()) {
                 true -> {  // 인터넷에 연결되어 있는 경우
                     runOnUiThread {  // ui 변경이 있어서 Thread에서 처리함

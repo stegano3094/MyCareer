@@ -11,13 +11,11 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo_ste"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyCareer">
-        <activity android:name=".DetailProjectActivity"
-            android:theme="@style/SplashTheme"></activity>
+        android:theme="@style/CleanTheme">
+        <activity android:name=".DetailProjectActivity"></activity>
         <activity android:name=".MainActivity" />
         <activity
-            android:name=".SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
