@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_splash.*
@@ -19,6 +20,8 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)  // 화면 꺼짐 방지
 
         // 스플래쉬 화면의 이미지에 애니메이션 처리함
         splashMainImage.startAnimation(AnimationUtils.loadAnimation(this@SplashActivity, R.anim.splash_animation))

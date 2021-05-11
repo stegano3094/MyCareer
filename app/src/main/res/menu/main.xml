@@ -8,6 +8,6 @@
         app:showAsAction="always"/>
     <item android:title="anko"
         android:id="@+id/anko"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/ic_launcher_foreground"
         app:showAsAction="always"/>
 </menu>
