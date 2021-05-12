@@ -4,14 +4,16 @@
 
     <item android:title="add"
         android:id="@+id/add1"
-        android:icon="@drawable/logo_ste"
+        android:icon="@drawable/ic_launcher_foreground"
         app:showAsAction="always"/>
+
     <item android:title="add2"
         android:id="@+id/add2"
-        android:icon="@drawable/logo_ste"
+        android:icon="@drawable/ic_launcher_foreground"
         app:showAsAction="always"/>
+
     <item android:title="공지사항"
         android:id="@+id/notice"
         android:icon="@android:drawable/ic_dialog_info"
-        app:showAsAction="always"/>
+        app:showAsAction="never"/>
 </menu>

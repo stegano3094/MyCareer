@@ -26,10 +26,11 @@ class SplashActivity : AppCompatActivity() {
         // 스플래쉬 화면의 이미지에 애니메이션 처리함
         splashMainImage.startAnimation(AnimationUtils.loadAnimation(this@SplashActivity, R.anim.splash_animation))
 
-        // 스플래쉬 화면에서 N초 간격으로 네트워크를 확인함
-        val delayTime = 2000L
+        // 스플래쉬 화면에서 N초 간격으로 네트워크를 확인하고, 5번 안에 네트워크 확인 안될 시 앱 종료
+        val delayTime = 1000L
+        var count = 0
         Toast.makeText(this@SplashActivity, "인터넷 \"확인 중\" 입니다.", Toast.LENGTH_SHORT).show()
-        timer = Timer().schedule(delayTime, delayTime) {
+        timer = Timer().schedule(100, delayTime) {
             when(checkNetwork()) {
                 true -> {  // 인터넷에 연결되어 있는 경우
                     runOnUiThread {  // ui 변경이 있어서 Thread에서 처리함
@@ -42,19 +43,22 @@ class SplashActivity : AppCompatActivity() {
                         moveMainActivity()  // 메인 엑티비티로 전환
                     }
                 }
-                false -> { // 인터넷에 연결되어 있지 않은 경우 3초간 계속 확인
-                    runOnUiThread {
-                        setClose()  // 타이머 및 애니메이션 종료
-                        Toast.makeText(
-                            this@SplashActivity,
-                            "인터넷이 연결되어 있지 않습니다.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        finish()
-                    }
+                false -> {  // 인터넷에 연결되어 있지 않은 경우 카운트를 증가
+                    count++
                 }
             }
 
+            if(count > 5) {  // N초(N번) 이상 인터넷 미연결 시 앱 종료
+                runOnUiThread {
+                    setClose()  // 타이머 및 애니메이션 종료
+                    Toast.makeText(
+                        this@SplashActivity,
+                        "인터넷이 연결되어 있지 않아 앱을 종료합니다.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    finish()
+                }
+            }
         }
 
     }

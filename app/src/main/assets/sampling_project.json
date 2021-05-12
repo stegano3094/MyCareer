@@ -1,7 +1,19 @@
 {
-  "project": [
+  "sample_project": [
     {
-      "name": "앱이름",
+      "name": "앱이름1",
+      "packageName": "com.stegano.ccc",
+      "logoImgUri": "http://steganowork.ipdisk.co.kr/apps/xe/",
+      "comment": "이러한 것을 사용했고, 이렇게 했다."
+    },
+    {
+      "name": "앱이름2",
+      "packageName": "com.stegano.ccc",
+      "logoImgUri": "이걸로 이미지 가져올 수 있도록 만들자",
+      "comment": "이러한 것을 사용했고, 이렇게 했다."
+    },
+    {
+      "name": "앱이름3",
       "packageName": "com.stegano.ccc",
       "logoImgUri": "이걸로 이미지 가져올 수 있도록 만들자",
       "comment": "이러한 것을 사용했고, 이렇게 했다."

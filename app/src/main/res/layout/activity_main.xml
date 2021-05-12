@@ -9,7 +9,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="200dp"
         android:fitsSystemWindows="true"
         app:liftOnScroll="true">
 
@@ -19,7 +19,7 @@
             android:fitsSystemWindows="true"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:contentScrim="?attr/colorPrimary"
-            app:statusBarScrim="?attr/colorPrimaryVariant"
+            app:statusBarScrim="?attr/colorPrimary"
             app:expandedTitleMarginStart="72dp"
             app:expandedTitleMarginBottom="28dp"
             app:expandedTitleTextAppearance="@style/TextAppearance.App.CollapsingToolbar.Expanded"
@@ -31,10 +31,10 @@
                 android:layout_height="?attr/actionBarSize"
                 android:elevation="0dp"
                 android:background="@android:color/transparent"
+                android:layout_marginStart="10dp"
                 app:layout_collapseMode="pin"
                 app:title="@string/app_name"
                 app:menu="@menu/main"
-                app:navigationIcon="@drawable/ic_launcher_foreground"
                 app:layout_scrollFlags="scroll|snap"
                 style="@style/Widget.MaterialComponents.Toolbar.Primary"
                 />
