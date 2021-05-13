@@ -13,8 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/CleanTheme">
         <activity android:name=".NoticeActivity"
-            android:theme="@style/Theme.MyCareer"></activity>
+            android:label="공지"
+            android:theme="@style/Theme.MyCareer" />
         <activity android:name=".DetailProjectActivity"
+            android:label="상세보기"
             android:theme="@style/Theme.MyCareer" />
         <activity android:name=".MainActivity" />
         <activity android:name=".SplashActivity">

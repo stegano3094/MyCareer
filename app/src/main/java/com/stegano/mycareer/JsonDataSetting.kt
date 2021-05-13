@@ -1,9 +1,11 @@
 package com.stegano.mycareer
 
 data class JsonDataSetting(
-    val name: String,
-    val packageName: String,
-    val logoImgUri: String,
+    val projectName: String,
+    val developmentPeriod: String,
+    val developmentPersonnel: String,
+    val summary: String,
+    val task: String,
     val comment: String
 )
 

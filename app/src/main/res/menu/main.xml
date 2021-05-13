@@ -2,18 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="add"
-        android:id="@+id/add1"
-        android:icon="@drawable/ic_launcher_foreground"
-        app:showAsAction="always"/>
-
-    <item android:title="add2"
-        android:id="@+id/add2"
-        android:icon="@drawable/ic_launcher_foreground"
-        app:showAsAction="always"/>
-
     <item android:title="공지사항"
         android:id="@+id/notice"
-        android:icon="@android:drawable/ic_dialog_info"
-        app:showAsAction="never"/>
+        android:icon="@drawable/baseline_error_outline_black_24pt_2x"
+        app:showAsAction="always"/>
 </menu>

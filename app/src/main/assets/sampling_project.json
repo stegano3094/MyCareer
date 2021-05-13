@@ -1,21 +1,27 @@
 {
   "sample_project": [
     {
-      "name": "앱이름1",
-      "packageName": "com.stegano.ccc",
-      "logoImgUri": "http://steganowork.ipdisk.co.kr/apps/xe/",
+      "projectName": "MyCareer",
+      "developmentPeriod": "2021-05-10 ~ 진행 중",
+      "developmentPersonnel": "1명",
+      "summary": "커리어를 보여주기 위해서 간단한 앱을 개발함",
+      "task": "1. json parsing",
       "comment": "이러한 것을 사용했고, 이렇게 했다."
     },
     {
-      "name": "앱이름2",
-      "packageName": "com.stegano.ccc",
-      "logoImgUri": "이걸로 이미지 가져올 수 있도록 만들자",
+      "projectName": "MyCareer2",
+      "developmentPeriod": "2021-05-10 ~ 진행 중",
+      "developmentPersonnel": "1명",
+      "summary": "커리어를 보여주기 위해서 간단한 앱을 개발함",
+      "task": "1. json parsing",
       "comment": "이러한 것을 사용했고, 이렇게 했다."
     },
     {
-      "name": "앱이름3",
-      "packageName": "com.stegano.ccc",
-      "logoImgUri": "이걸로 이미지 가져올 수 있도록 만들자",
+      "projectName": "MyCareer3",
+      "developmentPeriod": "2021-05-10 ~ 진행 중",
+      "developmentPersonnel": "1명",
+      "summary": "커리어를 보여주기 위해서 간단한 앱을 개발함",
+      "task": "1. json parsing",
       "comment": "이러한 것을 사용했고, 이렇게 했다."
     }
   ]

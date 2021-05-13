@@ -1,11 +1,13 @@
 package com.stegano.mycareer
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
 data class ProjectData(val resId: Int, val name: String?)
@@ -13,6 +15,7 @@ data class ProjectData(val resId: Int, val name: String?)
 class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val imageView: ImageView = view.findViewById(R.id.imageView)
     val textView: TextView = view.findViewById(R.id.textView)
+    val cardView: CardView = view.findViewById(R.id.cardView)
 }
 
 class ProjectRecyclerViewAdapter(
@@ -29,6 +32,12 @@ class ProjectRecyclerViewAdapter(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.imageView.setImageResource(items[position].resId)
         holder.textView.text = items[position].name
+
+        holder.cardView.setOnClickListener {
+            val intent = Intent(context, DetailProjectActivity::class.java)
+            intent.putExtra("click_language", items[position].name)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
