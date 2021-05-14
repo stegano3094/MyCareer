@@ -9,7 +9,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="230dp"
         android:fitsSystemWindows="true"
         app:liftOnScroll="true">
 
@@ -24,6 +24,14 @@
             app:expandedTitleMarginBottom="28dp"
             app:expandedTitleTextAppearance="@style/TextAppearance.App.CollapsingToolbar.Expanded"
             app:collapsedTitleTextAppearance="@style/TextAppearance.App.CollapsingToolbar.Collapsed">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/notebook"
+                android:scaleType="centerCrop"
+                android:fitsSystemWindows="true"
+                />
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/topAppBar"

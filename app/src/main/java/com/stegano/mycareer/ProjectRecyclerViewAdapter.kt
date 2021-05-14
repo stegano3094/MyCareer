@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
-data class ProjectData(val resId: Int, val name: String?)
+data class SkillData(val resId: Int, val name: String?)
 
 class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val imageView: ImageView = view.findViewById(R.id.imageView)
@@ -18,13 +18,13 @@ class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val cardView: CardView = view.findViewById(R.id.cardView)
 }
 
-class ProjectRecyclerViewAdapter(
+class SkillsRecyclerViewAdapter(
     val context: Context,
-    val items: List<ProjectData>) : RecyclerView.Adapter<MyViewHolder>() {
+    val items: List<SkillData>) : RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view: View = LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.cardview_project, parent, false)
+            .inflate(R.layout.cardview_skill, parent, false)
 
         return MyViewHolder(view)
     }
@@ -33,11 +33,11 @@ class ProjectRecyclerViewAdapter(
         holder.imageView.setImageResource(items[position].resId)
         holder.textView.text = items[position].name
 
-        holder.cardView.setOnClickListener {
-            val intent = Intent(context, DetailProjectActivity::class.java)
-            intent.putExtra("click_language", items[position].name)
-            context.startActivity(intent)
-        }
+//        holder.cardView.setOnClickListener {
+//            val intent = Intent(context, DetailSkillActivity::class.java)
+//            intent.putExtra("click_skill", items[position].name)
+//            context.startActivity(intent)
+//        }
     }
 
     override fun getItemCount(): Int {

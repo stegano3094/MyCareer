@@ -42,21 +42,34 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // 기술 스택의 리사이클러뷰
-        val recyclerviewSkillList = findViewById<RecyclerView>(R.id.recyclerview_skill_list)
-        recyclerviewSkillList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)  // 가로 스크롤
-        val adapter = ProjectRecyclerViewAdapter(this, listOf(
-            ProjectData(R.drawable.c_language, "C언어"),
-            ProjectData(R.drawable.c_plus_language, "C++"),
-            ProjectData(R.drawable.java_language, "자바"),
-            ProjectData(R.drawable.kotlin_language, "코틀린"),
-            ProjectData(R.drawable.python_language, "파이썬")
-        ))
-        recyclerviewSkillList.adapter = adapter
+        // Json 파일을 읽어 Career로 표시함
+        career_textview.text = stringFromJson("career.json")
 
-        // 프로젝트의 리사이클러뷰 (여기서는 json을 활용)
-        val data = gsonFromJson("sampling_project.json")
-        Log.e(TAG, "data : ${data}")
+        // 기술 스택 중 언어를 리사이클러뷰에 넣음
+        val recyclerviewLanguageList = findViewById<RecyclerView>(R.id.recyclerview_language_list)
+        recyclerviewLanguageList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)  // 가로 스크롤
+        val languageAdapter = SkillsRecyclerViewAdapter(this, listOf(
+            SkillData(R.drawable.c_language, "C언어"),
+            SkillData(R.drawable.c_plus_language, "C++"),
+            SkillData(R.drawable.java_language, "자바"),
+            SkillData(R.drawable.kotlin_language, "코틀린"),
+            SkillData(R.drawable.python_language, "파이썬")
+        ))
+        recyclerviewLanguageList.adapter = languageAdapter
+
+        // 기술 스택 중 언어를 리사이클러뷰에 넣음
+        val recyclerviewDatabaseList = findViewById<RecyclerView>(R.id.recyclerview_database_list)
+        recyclerviewDatabaseList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)  // 가로 스크롤
+        val databaseAdapter = SkillsRecyclerViewAdapter(this, listOf(
+            SkillData(R.drawable.sqlite, "SQLite"),
+            SkillData(R.drawable.firebase_realtime_database, "파이어베이스"),
+            SkillData(R.drawable.room, "Room")
+        ))
+        recyclerviewDatabaseList.adapter = databaseAdapter
+
+        // Json 파일을 읽어 리사이클러뷰에 프로젝트를 표시함
+        val projectData = gsonFromSamplingProjectJson("sampling_project.json")
+        Log.e(TAG, "projectData : ${projectData}")
 
         // 깃허브 링크 연결
         val link = github_text_link.text.toString()
@@ -66,22 +79,35 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Json 형식받아 Gson 형식으로 변환하는 함수, revised in 20210513
-    private fun gsonFromJson(jsonFile: String) : MutableList<JsonDataSetting> {
+    // Json 형식받아 Gson 형식으로 변환하는 함수, revised in 20210514
+    private fun stringFromJson(jsonFile: String) : String {
         val gson: Gson = GsonBuilder().create()
         val inputStream: InputStream = assets.open(jsonFile)
         val reader: InputStreamReader = InputStreamReader(inputStream)
-        val gsonData = gson.fromJson(reader, GsonDataSetting::class.java)  // Json 데이터(reader)를 Gson으로 변경
+        val gsonData = gson.fromJson(reader, CareerGsonSet::class.java)  // Json 데이터(reader)를 Gson으로 변경
+        var data = ""
 
-        Log.e(TAG, inputStream.read().toString())
-        Log.e(TAG, reader.toString())
-
-        val jsonData = mutableListOf<JsonDataSetting>()
-        for(detailData in gsonData.sample_project) {
-            Log.e(TAG, detailData.toString())
-            jsonData.add(detailData)
+        for(detailData in gsonData.my_career) {
+            data += "${detailData.date}\n\t\t${detailData.content}\n\n"
         }
-        return jsonData
+        return data
+    }
+
+    // Json 형식받아 Gson 형식으로 변환하는 함수, revised in 20210514
+    private fun gsonFromSamplingProjectJson(jsonFile: String) : MutableList<ProjectJsonSet> {
+        val gson: Gson = GsonBuilder().create()
+        val inputStream: InputStream = assets.open(jsonFile)
+        val reader: InputStreamReader = InputStreamReader(inputStream)
+        val gsonData = gson.fromJson(reader, ProjectGsonSet::class.java)  // Json 데이터(reader)를 Gson으로 변경
+//        Log.e(TAG, inputStream.read().toString())
+//        Log.e(TAG, reader.toString())
+
+        val data = mutableListOf<ProjectJsonSet>()
+        for(detailData in gsonData.sample_project) {
+//            Log.e(TAG, detailData.toString())
+            data.add(detailData)
+        }
+        return data
     }
 
     // 뒤로가기 버튼에 대한 함수

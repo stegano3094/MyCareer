@@ -1,27 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">배진영\'s Portfolio</string>
+    <string name="app_name">Portfolio</string>
 
     <!-- MainActivity 영역 -->
-    <string name="appbar_main_title">배진영</string>
+    <string name="appbar_main_title">배진영\'s portfolio</string>
 
-    <string name="main_sub_title_text1">Who am I ?</string>
-    <string name="main_sub_content_text1">고등학생때 우연히 코딩을 알게 되었고 대학생이 되었을 때 모바일 앱 개발에 관심이 생겼습니다.
-        이런 관심이 현재까지 영향을 주었으며, 앱 만드는 것을 즐기고 있는 신입 개발자입니다.
+    <string name="sub1_text_who_am_i">WHO AM I?</string>
+    <string name="content_text_who_am_i">고등학생때 우연히 코딩을 알게 되었고 대학생이 되었을 때 모바일 앱 개발에 관심이 생겼습니다.
+        이런 관심이 현재까지 영향을 받았으며, 앱 만드는 것을 즐기고 있는 신입 개발자입니다.
     </string>
 
-    <string name="main_sub_title_text2">Career</string>
-    <string name="main_sub_content_text2">대학~회사생활까지의 경력 (필수 : 프로젝트 경험, 특허 등)</string>
+    <string name="sub1_text_career">CAREER</string>
+    <string name="content_text_career">-</string>
 
-    <string name="main_sub_title_text4">Skills</string>
+    <string name="sub1_text_skills">SKILLS</string>
+    <string name="sub2_text_language">Language</string>
+    <string name="sub2_text_database">Database</string>
 
-    <string name="main_sub_title_text5">Typical Project</string>
-    <string name="main_sub_content_text5">GitHub Link</string>
-    <string name="main_sub_content_text6"><u>https://github.com/stegano3094</u></string>
+    <string name="sub1_text_typical_project">TYPICAL PROJECT</string>
+    <string name="sub2_text_github">GitHub</string>
+    <string name="sub2_text_github_link"><u>https://github.com/stegano3094</u></string>
+
+    <string name="sub1_text_contact_me">Contact me through email</string>
+    <string name="sub2_text_contact_me">steganowork@naver.com</string>
 
     <!-- NoticeActivity 영역 -->
     <string name="purpose_title_text">포트폴리오 앱을 만든 목적</string>
     <string name="purpose_content_text">다른 사람들에게 나의 문제 해결 능력과 팀원과 협업이 가능한지,
-    신입으로써 노력하는 것과 가능성을 보여주기 위해서 간단하게 앱을 만들어보았습니다.</string>
+    신입으로써 노력하는 것과 가능성을 보여주기 위해서 간단하게 앱을 만들어보았습니다. (수정 필요함)</string>
 
     <!-- xml의 dimension 영역-->
     <dimen name="content_layout_margin">8dp</dimen>

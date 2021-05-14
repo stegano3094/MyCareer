@@ -5,5 +5,5 @@
     <item android:title="공지사항"
         android:id="@+id/notice"
         android:icon="@drawable/baseline_error_outline_black_24pt_2x"
-        app:showAsAction="always"/>
+        app:showAsAction="never"/>
 </menu>

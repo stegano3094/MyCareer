@@ -2,27 +2,27 @@
   "sample_project": [
     {
       "projectName": "MyCareer",
-      "developmentPeriod": "2021-05-10 ~ 진행 중",
-      "developmentPersonnel": "1명",
-      "summary": "커리어를 보여주기 위해서 간단한 앱을 개발함",
-      "task": "1. json parsing",
-      "comment": "이러한 것을 사용했고, 이렇게 했다."
+      "developmentPeriod": "2021-05 (계발 기간 : 1달)",
+      "developmentPersonnel": "개인",
+      "summary": "작품 설명에 대해 간략하게 쓰기",
+      "task": "Android",
+      "comment": "작품 설명에 대해 간략하게 쓰기"
     },
     {
       "projectName": "MyCareer2",
-      "developmentPeriod": "2021-05-10 ~ 진행 중",
-      "developmentPersonnel": "1명",
-      "summary": "커리어를 보여주기 위해서 간단한 앱을 개발함",
+      "developmentPeriod": "2021-05 ~ 진행 중",
+      "developmentPersonnel": "개인",
+      "summary": "작품 설명에 대해 간략하게 쓰기",
       "task": "1. json parsing",
-      "comment": "이러한 것을 사용했고, 이렇게 했다."
+      "comment": "작품 설명에 대해 간략하게 쓰기"
     },
     {
       "projectName": "MyCareer3",
-      "developmentPeriod": "2021-05-10 ~ 진행 중",
-      "developmentPersonnel": "1명",
-      "summary": "커리어를 보여주기 위해서 간단한 앱을 개발함",
+      "developmentPeriod": "2021-05 ~ 진행 중",
+      "developmentPersonnel": "개인",
+      "summary": "작품 설명에 대해 간략하게 쓰기",
       "task": "1. json parsing",
-      "comment": "이러한 것을 사용했고, 이렇게 했다."
+      "comment": "작품 설명에 대해 간략하게 쓰기"
     }
   ]
 }

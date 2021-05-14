@@ -14,74 +14,113 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- 나에 대해 간략히 소개 -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/main_sub_title_text1"
+            android:text="@string/sub1_text_who_am_i"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="30dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/main_sub_content_text1"
-            android:layout_marginBottom="30dp"/>
+            android:text="@string/content_text_who_am_i"/>
 
+        <!-- 커리어 -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/main_sub_title_text2"
+            android:text="@string/sub1_text_career"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="30dp" />
         <TextView
+            android:id="@+id/career_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/main_sub_content_text2"
-            android:layout_marginBottom="30dp"/>
+            android:text="@string/content_text_career"/>
 
+        <!-- 스킬 타이틀-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/main_sub_title_text4"
+            android:text="@string/sub1_text_skills"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="30dp" />
+
+        <!-- 사용 가능한 언어 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="@string/sub2_text_language"
+            android:textSize="18sp" />
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_skill_list"
+            android:id="@+id/recyclerview_language_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- 사용 가능한 데이터베이스 -->
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"/>
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/sub2_text_database"
+            android:textSize="18sp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_database_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
+        <!-- 참여했던 프로젝트 -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/main_sub_title_text5"
+            android:text="@string/sub1_text_typical_project"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="30dp" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_project_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"/>
+            android:layout_height="wrap_content"/>
+
+        <!-- 깃허브 -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="@string/main_sub_content_text5"/>
+            android:textSize="18sp"
+            android:text="@string/sub2_text_github"
+            android:layout_marginTop="30dp" />
         <TextView
             android:id="@+id/github_text_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/sub2_text_github_link"
+            android:textStyle="italic"/>
+
+        <!-- 연락 -->
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/main_sub_content_text6"
-            android:textStyle="italic"
-            android:layout_marginBottom="30dp"/>
-
-        <include
-            layout="@layout/activity_splash"
+            android:textSize="18sp"
+            android:text="@string/sub1_text_contact_me"
+            android:layout_marginTop="30dp" />
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/sub2_text_contact_me"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
