@@ -13,12 +13,13 @@
 
         <ImageView
             android:id="@+id/projectImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/logo_ste" />
+            android:background="@color/white"/>
 
         <TextView
             android:id="@+id/projectName"
@@ -28,7 +29,8 @@
             android:textStyle="bold"
             android:textSize="24sp"
             android:textColor="@color/white"
-            android:shadowRadius="5.0"
+            android:padding="8dp"
+            android:shadowRadius="7.0"
             android:shadowColor="@color/black"
             android:shadowDx="5.0"
             android:shadowDy="5.0"
@@ -45,11 +47,10 @@
             android:text="-"
             android:textSize="18sp"
             android:textColor="@color/white"
-            android:shadowRadius="5.0"
+            android:shadowRadius="7.0"
             android:shadowColor="@color/black"
-            android:shadowDx="5.0"
-            android:shadowDy="5.0"
-            android:layout_margin="8dp"
+            android:layout_margin="4dp"
+            android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/projectName" />

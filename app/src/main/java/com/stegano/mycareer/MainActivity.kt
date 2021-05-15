@@ -16,7 +16,7 @@ import java.io.InputStream
 import java.io.InputStreamReader
 
 /**
- * 개발 기간 : 20210510 ~
+ * 개발 기간 : 20210510 ~ 2020515
  */
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +27,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // 앱바
+        // 커스텀 앱바
+        CustomTopAppBar()
+
+        // career.json 파일을 읽어 Career로 표시함
+        career_textview.text = stringFromJson("career.json")
+
+        // 기술 스택 중 언어를 리사이클러뷰에 넣음
+        RecyclerViewLanguage()
+
+        // 기술 스택 중 언어를 리사이클러뷰에 넣음
+        RecyclerViewDatabase()
+
+        // project.json 파일을 읽어 리사이클러뷰에 프로젝트를 표시함
+        RecyclerViewproject()
+
+        // 깃허브 링크 연결
+        val link = github_text_link.text.toString()
+        github_text_link.setOnClickListener {
+            val intentForGithub = Intent(Intent.ACTION_VIEW, Uri.parse(link))
+            startActivity(intentForGithub)
+        }
+    }
+
+    // 커스텀 앱바
+    private fun CustomTopAppBar() {
         topAppBar.setNavigationOnClickListener {
             // Handle navigation icon press
         }
@@ -41,11 +65,10 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+    }
 
-        // career.json 파일을 읽어 Career로 표시함
-        career_textview.text = stringFromJson("career.json")
-
-        // 기술 스택 중 언어를 리사이클러뷰에 넣음
+    // 기술 스택 중 언어를 리사이클러뷰에 넣음
+    private fun RecyclerViewLanguage() : Unit {
         val recyclerviewLanguageList = findViewById<RecyclerView>(R.id.recyclerview_language_list)
         recyclerviewLanguageList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)  // 가로 스크롤
         val languageSkillsAdapter = SkillsAdapter(this, listOf(
@@ -56,8 +79,10 @@ class MainActivity : AppCompatActivity() {
             SkillData(R.drawable.python_language, "파이썬")
         ))
         recyclerviewLanguageList.adapter = languageSkillsAdapter
+    }
 
-        // 기술 스택 중 언어를 리사이클러뷰에 넣음
+    // 기술 스택 중 언어를 리사이클러뷰에 넣음
+    private fun RecyclerViewDatabase() {
         val recyclerviewDatabaseList = findViewById<RecyclerView>(R.id.recyclerview_database_list)
         recyclerviewDatabaseList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)  // 가로 스크롤
         val databaseSkillsAdapter = SkillsAdapter(this, listOf(
@@ -66,26 +91,16 @@ class MainActivity : AppCompatActivity() {
             SkillData(R.drawable.room, "Room")
         ))
         recyclerviewDatabaseList.adapter = databaseSkillsAdapter
+    }
 
-        // project.json 파일을 읽어 리사이클러뷰에 프로젝트를 표시함
-        val projectData = projectListFromProjectJson("project.json")
-        Log.e(TAG, "projectData : ${projectData}")
-        val projectList = listOf(
-            ProjectData("MyCareer", "Kotlin", "https://placeimg.com/450/300/1"),
-            ProjectData("MyCareer1", "Kotlin, Java, Python", "https://placeimg.com/450/300/2"),
-            ProjectData("MyCareer2", "Kotlin", "https://placeimg.com/450/300/3")
-        )
+    // project.json 파일을 읽어 리사이클러뷰에 프로젝트를 표시함
+    private fun RecyclerViewproject() {
+        val projectList = projectListFromProjectJson("project.json")
+        Log.e(TAG, "projectList : ${projectList}")
         val recyclerviewProjectList = findViewById<RecyclerView>(R.id.recyclerview_project_list)
         recyclerviewProjectList.layoutManager = LinearLayoutManager(this)
         val projectAdapter = ProjectAdapter(this, projectList)
         recyclerviewProjectList.adapter = projectAdapter
-
-        // 깃허브 링크 연결
-        val link = github_text_link.text.toString()
-        github_text_link.setOnClickListener {
-            val intentForGithub = Intent(Intent.ACTION_VIEW, Uri.parse(link))
-            startActivity(intentForGithub)
-        }
     }
 
     // Json 형식받아 Gson 형식으로 변환하는 함수, revised in 20210514
@@ -103,7 +118,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Json 형식받아 Gson 형식으로 변환하고 projectList로 반환하는 함수, revised in 20210514
-    private fun projectListFromProjectJson(jsonFile: String) : MutableList<ProjectJsonSet> {
+    private fun projectListFromProjectJson(jsonFile: String) : MutableList<ProjectData> {
         val gson: Gson = GsonBuilder().create()
         val inputStream: InputStream = assets.open(jsonFile)
         val reader: InputStreamReader = InputStreamReader(inputStream)
@@ -111,12 +126,13 @@ class MainActivity : AppCompatActivity() {
 //        Log.e(TAG, inputStream.read().toString())
 //        Log.e(TAG, reader.toString())
 
-        val data = mutableListOf<ProjectJsonSet>()
+        val projectList = mutableListOf<ProjectData>()
         for(detailData in gsonData.project) {
 //            Log.e(TAG, detailData.toString())
-            data.add(detailData)
+            projectList.add(ProjectData(detailData.projectName, detailData.skill, detailData.imgUri))
         }
-        return data
+
+        return projectList
     }
 
     // 뒤로가기 버튼에 대한 함수
