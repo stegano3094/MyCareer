@@ -10,7 +10,6 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
-data class SkillData(val resId: Int, val name: String?)
 
 class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val imageView: ImageView = view.findViewById(R.id.imageView)
@@ -18,9 +17,10 @@ class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val cardView: CardView = view.findViewById(R.id.cardView)
 }
 
-class SkillsRecyclerViewAdapter(
-    val context: Context,
-    val items: List<SkillData>) : RecyclerView.Adapter<MyViewHolder>() {
+data class SkillData(val resId: Int, val name: String)
+
+class SkillsAdapter(
+    val context: Context, val items: List<SkillData>) : RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view: View = LayoutInflater
             .from(parent.context)

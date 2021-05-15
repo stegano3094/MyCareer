@@ -29,17 +29,13 @@ class SplashActivity : AppCompatActivity() {
         // 스플래쉬 화면에서 N초 간격으로 네트워크를 확인하고, 5번 안에 네트워크 확인 안될 시 앱 종료
         val delayTime = 1000L
         var count = 0
-        Toast.makeText(this@SplashActivity, "인터넷 \"확인 중\" 입니다.", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this@SplashActivity, "인터넷 \"확인 중\" 입니다.", Toast.LENGTH_SHORT).show()
         timer = Timer().schedule(100, delayTime) {
             when(checkNetwork()) {
                 true -> {  // 인터넷에 연결되어 있는 경우
                     runOnUiThread {  // ui 변경이 있어서 Thread에서 처리함
                         setClose()  // 타이머 및 애니메이션 종료
-                        Toast.makeText(
-                            this@SplashActivity,
-                            "인터넷 연결을 확인하였습니다.",
-                            Toast.LENGTH_SHORT)
-                            .show()
+//                        Toast.makeText(this@SplashActivity, "인터넷 연결을 확인하였습니다.", Toast.LENGTH_SHORT).show()
                         moveMainActivity()  // 메인 엑티비티로 전환
                     }
                 }

@@ -31,4 +31,9 @@
 
     <!-- xml의 dimension 영역-->
     <dimen name="content_layout_margin">8dp</dimen>
+    <dimen name="sub1_title_margin_top">50dp</dimen>
+    <dimen name="sub2_title_margin_top">20dp</dimen>
+    <dimen name="cardview_project_radius">14dp</dimen>
+    <dimen name="cardview_skill_radius">10dp</dimen>
+    <dimen name="bottom_margin">20dp</dimen>
 </resources>

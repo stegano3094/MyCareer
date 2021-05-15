@@ -1,12 +1,12 @@
 {
-  "sample_project": [
+  "project": [
     {
       "projectName": "MyCareer",
       "developmentPeriod": "2021-05 (계발 기간 : 1달)",
       "developmentPersonnel": "개인",
       "summary": "작품 설명에 대해 간략하게 쓰기",
       "task": "Android",
-      "comment": "작품 설명에 대해 간략하게 쓰기"
+      "imgUri": "https://placeimg.com/50/50/1"
     },
     {
       "projectName": "MyCareer2",
@@ -14,7 +14,7 @@
       "developmentPersonnel": "개인",
       "summary": "작품 설명에 대해 간략하게 쓰기",
       "task": "1. json parsing",
-      "comment": "작품 설명에 대해 간략하게 쓰기"
+      "imgUri": "작품 설명에 대해 간략하게 쓰기"
     },
     {
       "projectName": "MyCareer3",
@@ -22,7 +22,7 @@
       "developmentPersonnel": "개인",
       "summary": "작품 설명에 대해 간략하게 쓰기",
       "task": "1. json parsing",
-      "comment": "작품 설명에 대해 간략하게 쓰기"
+      "imgUri": "작품 설명에 대해 간략하게 쓰기"
     }
   ]
 }

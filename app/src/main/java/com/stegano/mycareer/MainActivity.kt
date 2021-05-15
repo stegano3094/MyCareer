@@ -42,34 +42,43 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Json 파일을 읽어 Career로 표시함
+        // career.json 파일을 읽어 Career로 표시함
         career_textview.text = stringFromJson("career.json")
 
         // 기술 스택 중 언어를 리사이클러뷰에 넣음
         val recyclerviewLanguageList = findViewById<RecyclerView>(R.id.recyclerview_language_list)
         recyclerviewLanguageList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)  // 가로 스크롤
-        val languageAdapter = SkillsRecyclerViewAdapter(this, listOf(
+        val languageSkillsAdapter = SkillsAdapter(this, listOf(
             SkillData(R.drawable.c_language, "C언어"),
             SkillData(R.drawable.c_plus_language, "C++"),
             SkillData(R.drawable.java_language, "자바"),
             SkillData(R.drawable.kotlin_language, "코틀린"),
             SkillData(R.drawable.python_language, "파이썬")
         ))
-        recyclerviewLanguageList.adapter = languageAdapter
+        recyclerviewLanguageList.adapter = languageSkillsAdapter
 
         // 기술 스택 중 언어를 리사이클러뷰에 넣음
         val recyclerviewDatabaseList = findViewById<RecyclerView>(R.id.recyclerview_database_list)
         recyclerviewDatabaseList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)  // 가로 스크롤
-        val databaseAdapter = SkillsRecyclerViewAdapter(this, listOf(
+        val databaseSkillsAdapter = SkillsAdapter(this, listOf(
             SkillData(R.drawable.sqlite, "SQLite"),
             SkillData(R.drawable.firebase_realtime_database, "파이어베이스"),
             SkillData(R.drawable.room, "Room")
         ))
-        recyclerviewDatabaseList.adapter = databaseAdapter
+        recyclerviewDatabaseList.adapter = databaseSkillsAdapter
 
-        // Json 파일을 읽어 리사이클러뷰에 프로젝트를 표시함
-        val projectData = gsonFromSamplingProjectJson("sampling_project.json")
+        // project.json 파일을 읽어 리사이클러뷰에 프로젝트를 표시함
+        val projectData = projectListFromProjectJson("project.json")
         Log.e(TAG, "projectData : ${projectData}")
+        val projectList = listOf(
+            ProjectData("MyCareer", "Kotlin", "https://placeimg.com/450/300/1"),
+            ProjectData("MyCareer1", "Kotlin, Java, Python", "https://placeimg.com/450/300/2"),
+            ProjectData("MyCareer2", "Kotlin", "https://placeimg.com/450/300/3")
+        )
+        val recyclerviewProjectList = findViewById<RecyclerView>(R.id.recyclerview_project_list)
+        recyclerviewProjectList.layoutManager = LinearLayoutManager(this)
+        val projectAdapter = ProjectAdapter(this, projectList)
+        recyclerviewProjectList.adapter = projectAdapter
 
         // 깃허브 링크 연결
         val link = github_text_link.text.toString()
@@ -93,8 +102,8 @@ class MainActivity : AppCompatActivity() {
         return data
     }
 
-    // Json 형식받아 Gson 형식으로 변환하는 함수, revised in 20210514
-    private fun gsonFromSamplingProjectJson(jsonFile: String) : MutableList<ProjectJsonSet> {
+    // Json 형식받아 Gson 형식으로 변환하고 projectList로 반환하는 함수, revised in 20210514
+    private fun projectListFromProjectJson(jsonFile: String) : MutableList<ProjectJsonSet> {
         val gson: Gson = GsonBuilder().create()
         val inputStream: InputStream = assets.open(jsonFile)
         val reader: InputStreamReader = InputStreamReader(inputStream)
@@ -103,7 +112,7 @@ class MainActivity : AppCompatActivity() {
 //        Log.e(TAG, reader.toString())
 
         val data = mutableListOf<ProjectJsonSet>()
-        for(detailData in gsonData.sample_project) {
+        for(detailData in gsonData.project) {
 //            Log.e(TAG, detailData.toString())
             data.add(detailData)
         }

@@ -22,7 +22,7 @@
             android:text="@string/sub1_text_who_am_i"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="@dimen/sub1_title_margin_top"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             android:text="@string/sub1_text_career"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="@dimen/sub1_title_margin_top"/>
         <TextView
             android:id="@+id/career_textview"
             android:layout_width="match_parent"
@@ -51,14 +51,14 @@
             android:text="@string/sub1_text_skills"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="@dimen/sub1_title_margin_top"/>
 
         <!-- 사용 가능한 언어 -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/sub2_title_margin_top"
             android:text="@string/sub2_text_language"
             android:textSize="18sp" />
         <androidx.recyclerview.widget.RecyclerView
@@ -70,7 +70,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/sub2_title_margin_top"
             android:gravity="center"
             android:text="@string/sub2_text_database"
             android:textSize="18sp" />
@@ -87,7 +87,7 @@
             android:text="@string/sub1_text_typical_project"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="@dimen/sub1_title_margin_top" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_project_list"
             android:layout_width="match_parent"
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:text="@string/sub2_text_github"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="@dimen/sub2_title_margin_top"/>
         <TextView
             android:id="@+id/github_text_link"
             android:layout_width="wrap_content"
@@ -114,12 +114,12 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:text="@string/sub1_text_contact_me"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="@dimen/sub2_title_margin_top" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="@dimen/bottom_margin"
             android:text="@string/sub2_text_contact_me"/>
     </LinearLayout>
 

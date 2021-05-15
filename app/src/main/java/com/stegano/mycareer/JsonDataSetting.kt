@@ -22,5 +22,5 @@ data class ProjectJsonSet(
 )
 
 data class ProjectGsonSet(
-    val sample_project: ArrayList<ProjectJsonSet>
+    val project: ArrayList<ProjectJsonSet>
 )
