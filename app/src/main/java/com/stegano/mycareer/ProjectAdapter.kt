@@ -34,7 +34,8 @@ class ProjectAdapter(val context: Context, val items: List<ProjectData>): Recycl
             .load(Uri.parse(items[position].thumbnailUri))
             .fit()
             .centerCrop()
-            .into(holder.projectImageThumbnail)
+            .error(R.drawable.notebook)  // 이미지 로드 실패시 보여줄 이미지
+            .into(holder.projectImageThumbnail)  // 이미지 로드 성공 시 이미지 삽입함
         holder.projectName.text = items[position].thumbnailName
         holder.projectSkills.text = items[position].thumbnailSkills
         holder.cardView.setOnClickListener {

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="@dimen/content_layout_margin"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
+    android:layout_height="230dp"
     android:id="@+id/cardView"
     app:cardCornerRadius="@dimen/cardview_project_radius">
 
@@ -15,11 +15,12 @@
             android:id="@+id/projectImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:foreground="#55000000"
+            app:srcCompat="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@color/white"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/projectName"
@@ -30,15 +31,15 @@
             android:textSize="24sp"
             android:textColor="@color/white"
             android:padding="8dp"
-            android:shadowRadius="7.0"
+            android:shadowRadius="5.0"
             android:shadowColor="@color/black"
-            android:shadowDx="5.0"
-            android:shadowDy="5.0"
+            android:shadowDx="3.0"
+            android:shadowDy="3.0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.7" />
+            app:layout_constraintVertical_bias="0.35" />
 
         <TextView
             android:id="@+id/projectSkills"
@@ -47,7 +48,7 @@
             android:text="-"
             android:textSize="18sp"
             android:textColor="@color/white"
-            android:shadowRadius="7.0"
+            android:shadowRadius="5.0"
             android:shadowColor="@color/black"
             android:layout_margin="4dp"
             android:padding="8dp"

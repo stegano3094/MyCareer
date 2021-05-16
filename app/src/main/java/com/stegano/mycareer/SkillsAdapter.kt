@@ -1,7 +1,6 @@
 package com.stegano.mycareer
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val imageView: ImageView = view.findViewById(R.id.imageView)
-    val textView: TextView = view.findViewById(R.id.textView)
+    val textView: TextView = view.findViewById(R.id.detailProjectName)
     val cardView: CardView = view.findViewById(R.id.cardView)
 }
 

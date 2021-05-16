@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +17,7 @@ import java.io.InputStream
 import java.io.InputStreamReader
 
 /**
- * 개발 기간 : 20210510 ~ 2020515
+ * 개발 기간 : 20210510 ~ 2020516
  */
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)  // 메인 화면에서 화면 꺼짐 방지함
 
         // 커스텀 앱바
         CustomTopAppBar()
@@ -67,6 +69,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Json 형식받아 Gson 형식으로 변환하는 함수, revised in 20210514
+    private fun stringFromJson(jsonFile: String) : String {
+        val gson: Gson = GsonBuilder().create()
+        val inputStream: InputStream = assets.open(jsonFile)
+        val reader: InputStreamReader = InputStreamReader(inputStream)
+        val gsonData = gson.fromJson(reader, CareerGsonSet::class.java)  // Json 데이터(reader)를 Gson으로 변경
+        var data = ""
+
+        for(detailData in gsonData.my_career) {
+            data += "${detailData.date}\n\t\t${detailData.content}\n\n"
+        }
+
+        // 마지막에 \n\n으로 인해서 줄이 늘어나는 현상으로 마지막 문자 2개는 제거하는 코드를 넣음
+        data = data.substring(0, data.length - 2)
+
+        return data
+    }
+
     // 기술 스택 중 언어를 리사이클러뷰에 넣음
     private fun RecyclerViewLanguage() : Unit {
         val recyclerviewLanguageList = findViewById<RecyclerView>(R.id.recyclerview_language_list)
@@ -81,7 +101,7 @@ class MainActivity : AppCompatActivity() {
         recyclerviewLanguageList.adapter = languageSkillsAdapter
     }
 
-    // 기술 스택 중 언어를 리사이클러뷰에 넣음
+    // 기술 스택 중 데이터베이스를 리사이클러뷰에 넣음
     private fun RecyclerViewDatabase() {
         val recyclerviewDatabaseList = findViewById<RecyclerView>(R.id.recyclerview_database_list)
         recyclerviewDatabaseList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)  // 가로 스크롤
@@ -103,20 +123,6 @@ class MainActivity : AppCompatActivity() {
         recyclerviewProjectList.adapter = projectAdapter
     }
 
-    // Json 형식받아 Gson 형식으로 변환하는 함수, revised in 20210514
-    private fun stringFromJson(jsonFile: String) : String {
-        val gson: Gson = GsonBuilder().create()
-        val inputStream: InputStream = assets.open(jsonFile)
-        val reader: InputStreamReader = InputStreamReader(inputStream)
-        val gsonData = gson.fromJson(reader, CareerGsonSet::class.java)  // Json 데이터(reader)를 Gson으로 변경
-        var data = ""
-
-        for(detailData in gsonData.my_career) {
-            data += "${detailData.date}\n\t\t${detailData.content}\n\n"
-        }
-        return data
-    }
-
     // Json 형식받아 Gson 형식으로 변환하고 projectList로 반환하는 함수, revised in 20210514
     private fun projectListFromProjectJson(jsonFile: String) : MutableList<ProjectData> {
         val gson: Gson = GsonBuilder().create()
@@ -129,6 +135,7 @@ class MainActivity : AppCompatActivity() {
         val projectList = mutableListOf<ProjectData>()
         for(detailData in gsonData.project) {
 //            Log.e(TAG, detailData.toString())
+            // imgUri에 https://placeimg.com/450/300/1를 넣어 http 통신으로 랜덤 이미지를 가져올 수 있음
             projectList.add(ProjectData(detailData.projectName, detailData.skill, detailData.imgUri))
         }
 
@@ -137,13 +144,13 @@ class MainActivity : AppCompatActivity() {
 
     // 뒤로가기 버튼에 대한 함수
     override fun onBackPressed() {
-        val finishBackPressedTime = 1500L  // 1.5초
+        val finishBackPressedTime = 2000L  // 2초
         if(System.currentTimeMillis() - lastTimeBackPressed < finishBackPressedTime) {
-            finish()
+            finish()  // finishBackPressedTime 시간보다 빨리 누를 경우 앱 종료함
             return
         }
 
         lastTimeBackPressed = System.currentTimeMillis()
-        Toast.makeText(this, "'뒤로'버튼을 한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "'뒤로' 버튼을 한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
     }
 }
