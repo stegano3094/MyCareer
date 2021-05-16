@@ -29,10 +29,10 @@
         app:layout_constraintTop_toBottomOf="@+id/detailProjectImage" />
 
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailProjectName">
@@ -45,8 +45,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="개발 기간 : " />
+                android:text="개발 기간 : "
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/detailDevelopmentPeriod"
@@ -64,8 +64,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="개발 인원 : " />
+                android:text="개발 인원 : "
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/detailDevelopmentPersonnel"
@@ -83,8 +83,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="사용된 기술 : " />
+                android:text="사용된 기술 : "
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/detailSkill"
@@ -102,8 +102,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="간단한 설명 : " />
+                android:text="간단한 설명 : "
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/detailSummary"
@@ -113,4 +113,17 @@
                 android:text="-" />
         </TableRow>
     </TableLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
