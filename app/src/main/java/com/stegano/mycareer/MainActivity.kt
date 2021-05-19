@@ -27,6 +27,7 @@ import java.io.InputStreamReader
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     val TAG: String = "MainActivity"
     var lastTimeBackPressed = 0L
+    var githubLink: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,19 +53,28 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         RecyclerViewproject()
 
         // 깃허브 링크 연결
-        val link = github_text_link.text.toString()
+        githubLink = github_text_link.text.toString()
         github_text_link.setOnClickListener {
-            val intentForGithub = Intent(Intent.ACTION_VIEW, Uri.parse(link))
+            val intentForGithub = Intent(Intent.ACTION_VIEW, Uri.parse(githubLink))
             startActivity(intentForGithub)
         }
     }
 
-    // 드로어 네이게이션에서 아이템 선택 시 동작
+    // 네이게이션 드로어에서 아이템 선택 시 동작
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.notice -> {
                 val intent = Intent(this@MainActivity, NoticeActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.nav_github -> {
+                val intentForGithub = Intent(Intent.ACTION_VIEW, Uri.parse(githubLink))
+                startActivity(intentForGithub)
+            }
+            R.id.nav_homepage -> {
+                val homepageUri = "http://steganowork.ipdisk.co.kr/apps/xe/"
+                val intentForHomepage = Intent(Intent.ACTION_VIEW, Uri.parse(homepageUri))
+                startActivity(intentForHomepage)
             }
         }
         layout_drawer.closeDrawers()

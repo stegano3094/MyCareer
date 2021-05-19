@@ -15,14 +15,6 @@
       "summary": "캡스톤 디자인 경진대회에서 \"디스플레이 색상인식 기반의 출입 제어 시스템\"을 만들어 최우수상을 수상한 작품입니다.\n이 프로젝트에서 안드로이드로 앱을 만들고, 아두이노를 이용하여 하드웨어 구동을 담당했습니다.",
       "skill": "Android, Python",
       "imgUri": "http://steganowork.ipdisk.co.kr:8000/mycareer/sixcaps_project_thumb.png"
-    },
-    {
-      "projectName": "Test",
-      "developmentPeriod": "20210510 ~ 2020516",
-      "developmentPersonnel": "개인",
-      "summary": "-",
-      "skill": "Android",
-      "imgUri": "https://placeimg.com/450/300/1"
     }
   ]
 }

@@ -10,6 +10,10 @@
     <item android:id="@+id/nav_bottom"
         android:title="Contact me" >
         <menu>
+            <item android:title="GitHub"
+                android:id="@+id/nav_github" />
+            <item android:title="Homepage"
+                android:id="@+id/nav_homepage" />
             <item android:id="@+id/nav_email"
                 android:title="steganowork@naver.com"
                 android:enabled="false"/>
