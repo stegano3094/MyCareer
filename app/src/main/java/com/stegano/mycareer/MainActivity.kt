@@ -5,32 +5,39 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import kotlinx.android.synthetic.main.activity_drawer_layout.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main_content.*
 import java.io.InputStream
 import java.io.InputStreamReader
 
 /**
- * 개발 기간 : 20210510 ~ 2020516
+ * 개발 기간 : 20210510 ~ 20210519
  */
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     val TAG: String = "MainActivity"
     var lastTimeBackPressed = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_drawer_layout)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)  // 메인 화면에서 화면 꺼짐 방지함
 
         // 커스텀 앱바
         CustomTopAppBar()
+
+        // 네비 드로어의 리스너 연결
+        naviView.setNavigationItemSelectedListener(this)
 
         // career.json 파일을 읽어 Career로 표시함
         career_textview.text = stringFromJson("career.json")
@@ -50,6 +57,18 @@ class MainActivity : AppCompatActivity() {
             val intentForGithub = Intent(Intent.ACTION_VIEW, Uri.parse(link))
             startActivity(intentForGithub)
         }
+    }
+
+    // 드로어 네이게이션에서 아이템 선택 시 동작
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.notice -> {
+                val intent = Intent(this@MainActivity, NoticeActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        layout_drawer.closeDrawers()
+        return false
     }
 
     // 커스텀 앱바
@@ -145,12 +164,17 @@ class MainActivity : AppCompatActivity() {
     // 뒤로가기 버튼에 대한 함수
     override fun onBackPressed() {
         val finishBackPressedTime = 2000L  // 2초
-        if(System.currentTimeMillis() - lastTimeBackPressed < finishBackPressedTime) {
-            finish()  // finishBackPressedTime 시간보다 빨리 누를 경우 앱 종료함
-            return
+
+        if(layout_drawer.isDrawerOpen(GravityCompat.START))  // 네비드로어가 열려있을 경우 닫음
+            layout_drawer.closeDrawers()
+        else {  // 네비드로어가 닫혀있는 경우 2번 눌러 닫히도록 수정
+            if (System.currentTimeMillis() - lastTimeBackPressed < finishBackPressedTime) {
+                finish()  // finishBackPressedTime 시간보다 빨리 누를 경우 앱 종료함
+                return
+            }
+            lastTimeBackPressed = System.currentTimeMillis()
+            Toast.makeText(this, "'뒤로' 버튼을 한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
         }
 
-        lastTimeBackPressed = System.currentTimeMillis()
-        Toast.makeText(this, "'뒤로' 버튼을 한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
     }
 }

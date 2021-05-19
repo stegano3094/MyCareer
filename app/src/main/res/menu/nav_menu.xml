@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/notice"
+            android:title="공지사항"
+            android:icon="@drawable/baseline_error_outline_black_24pt_2x" />
+    </group>
+
+    <item android:id="@+id/nav_bottom"
+        android:title="Contact me" >
+        <menu>
+            <item android:id="@+id/nav_email"
+                android:title="steganowork@naver.com"
+                android:enabled="false"/>
+        </menu>
+    </item>
+</menu>

@@ -11,4 +11,7 @@
     <color name="main_title_color">#7a5636</color>
     <color name="main_sub_title_color">#624932</color>
     <color name="main_action_bar_color">#ffffff</color>
+
+    <color name="drawer_color1">#D59F71</color>
+    <color name="drawer_color2">#D59F71</color>
 </resources>
