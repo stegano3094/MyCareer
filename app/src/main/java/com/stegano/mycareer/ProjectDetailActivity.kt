@@ -3,9 +3,6 @@ package com.stegano.mycareer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.squareup.picasso.Picasso
@@ -14,9 +11,6 @@ import java.io.InputStreamReader
 
 class ProjectDetailActivity : AppCompatActivity() {
     val TAG = "ProjectDetailActivity"
-
-    lateinit var mAdView : AdView
-
     private lateinit var CLICKED_PROJECT_NAME: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,18 +24,9 @@ class ProjectDetailActivity : AppCompatActivity() {
             CLICKED_PROJECT_NAME = "잘못된 경로입니다."
         }
 
-        val ab = supportActionBar
-        ab?.title = CLICKED_PROJECT_NAME
-
         // project.json 파일을 읽어 각 뷰의 화면을 세팅
         val gson = getGson()
         setLayout(gson)
-
-        // 애드몹 초기화화
-        // 테스트 광고시 참고 사이트 https://developers.google.com/admob/android/test-ads?hl=ko
-        mAdView = findViewById(R.id.adView)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
     }
     private fun getGson() : ProjectJsonSet? {
         val gson: Gson = GsonBuilder().create()
