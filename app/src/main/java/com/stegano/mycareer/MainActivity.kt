@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     val TAG: String = "MainActivity"
     var lastTimeBackPressed = 0L
     var githubLink: String = ""
+    var webPortfolioLink: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +58,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         github_text_link.setOnClickListener {
             val intentForGithub = Intent(Intent.ACTION_VIEW, Uri.parse(githubLink))
             startActivity(intentForGithub)
+        }
+        webPortfolioLink = github_text_link2.text.toString()
+        github_text_link2.setOnClickListener {
+            val intentForWebPortfolioLink = Intent(Intent.ACTION_VIEW, Uri.parse(webPortfolioLink))
+            startActivity(intentForWebPortfolioLink)
         }
     }
 

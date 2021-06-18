@@ -3,12 +3,11 @@
     <string name="app_name">Portfolio</string>
 
     <!-- MainActivity 영역 -->
-    <string name="appbar_main_title">배진영\'s portfolio</string>
+    <string name="appbar_main_title">Portfolio</string>
 
     <string name="sub1_text_who_am_i">WHO AM I?</string>
-    <string name="content_text_who_am_i">고등학생때 우연히 코딩을 알게 되었고 대학생이 되었을 때 모바일 앱 개발에 관심이 생겼습니다.
-        이런 관심이 현재까지 영향을 받았으며, 앱 만드는 것을 즐기고 있는 신입 개발자입니다.
-    </string>
+    <string name="content_text_who_am_i">모바일 앱 만드는 것을 즐기고 있는 개발자입니다.</string>
+    <string name="content_text_who_am_i_my_name">배진영</string>
 
     <string name="sub1_text_career">CAREER</string>
     <string name="content_text_career">-</string>
@@ -18,8 +17,11 @@
     <string name="sub2_text_database">Database</string>
 
     <string name="sub1_text_typical_project">TYPICAL PROJECT</string>
+
     <string name="sub2_text_github">GitHub</string>
     <string name="sub2_text_github_link"><u>https://github.com/stegano3094</u></string>
+    <string name="sub2_text_github2">웹 포트폴리오</string>
+    <string name="sub2_text_github_link2"><u>https://stegano3094.github.io/</u></string>
 
     <string name="sub1_text_contact_me">Contact me through email</string>
     <string name="sub2_text_contact_me">steganowork@naver.com</string>

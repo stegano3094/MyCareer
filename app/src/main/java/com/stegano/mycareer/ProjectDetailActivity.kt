@@ -3,6 +3,7 @@ package com.stegano.mycareer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.squareup.picasso.Picasso
@@ -49,6 +50,11 @@ class ProjectDetailActivity : AppCompatActivity() {
             .centerCrop()
             .error(R.drawable.notebook)
             .into(detailProjectImage)
+//        Glide.with(this)
+//            .load(data?.imgUri)
+//            .override(400, 300)
+//            .error(R.drawable.notebook)
+//            .into(detailProjectImage)
 
         detailProjectName.text = "프로젝트명 : ${data?.projectName}"
         detailDevelopmentPeriod.text = data?.developmentPeriod

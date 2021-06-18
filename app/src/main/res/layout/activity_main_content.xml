@@ -28,7 +28,14 @@
             android:layout_height="wrap_content"
             android:text="@string/content_text_who_am_i"/>
 
+
+
         <!-- 커리어 -->
+        <include
+            layout="@layout/activity_main_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -106,6 +113,21 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:text="@string/sub2_text_github_link"
+            android:textStyle="italic"/>
+
+        <!-- 포르폴리오 사이트 링크 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/sub2_text_github2"
+            android:layout_marginTop="@dimen/sub2_title_margin_top"/>
+        <TextView
+            android:id="@+id/github_text_link2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/sub2_text_github_link2"
             android:textStyle="italic"/>
 
         <!-- 연락 -->
