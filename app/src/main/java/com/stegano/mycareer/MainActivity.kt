@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drawer_layout)
 
-        // 메인 화면에서 화면 꺼짐 방지함 - tester가 수정
+        // 메인 화면에서 화면 꺼짐 방지함~
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         // 커스텀 앱바
