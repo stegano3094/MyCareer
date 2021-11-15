@@ -33,7 +33,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drawer_layout)
-        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)  // 메인 화면에서 화면 꺼짐 방지함
+
+        // 메인 화면에서 화면 꺼짐 방지함
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         // 커스텀 앱바
         CustomTopAppBar()

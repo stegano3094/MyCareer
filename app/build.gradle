@@ -35,7 +35,7 @@ android {
 
 dependencies {
     // Gson
-    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.code.gson:gson:2.8.9'
 
     // 이미지 로딩 라이브러리  https://square.github.io/picasso/
     implementation 'com.squareup.picasso:picasso:2.71828'
